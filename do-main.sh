@@ -1,19 +1,19 @@
 #! /bin/bash
-KranulVer="419"
-branch="r2/s"
-CODENAME="X01BD"
+KranulVer="44"
+branch="hmp-test"
+CODENAME="X00TD"
 WithSpec="Y"
 PrivBuild="N"
 PureKernel="N"
-CUSKERNAME="" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
+CUSKERNAME="SkyWalker-BETA" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
 CUSKERLINK=""
 CUSBUILDDATE=""
 CUSSPEC=""
 CUSCLANGVER=""
 CUSLLDVER=""
 CUSMSGWORD=""
-TypeBuild="RELEASE"
-BuilderKernel="00000"
+TypeBuild="TEST"
+BuilderKernel="sdclang"
 
 if [ "$KranulVer" = "419" ];then
 CAFTAG="04900"
@@ -36,8 +36,11 @@ else
 ResetBranch
 StockFreq
 CompileKernel
-SwitchDevice "M1"
+StockFreq "revert"
+CompileKernel
+SwitchDevice "M2"
 ResetBranch
+CompileKernel
 StockFreq
 CompileKernel
 fi;
